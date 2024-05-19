@@ -40,4 +40,5 @@
 - - -
 
 ## 🗄ERD
+![erd.PNG](https://github.com/GLORY-JI/ZeroBase-FinTech/blob/main/erd.PNG)
 
