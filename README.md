@@ -25,7 +25,7 @@
   + 송금 내역 조회
   + 송금시 메모 추가 가능 (default -> 보내는이 이름)
 
-+ **기술 스택**
++ 🧰**기술 스택**
   + JAVA
   + Spring Boot
   + Spring Security
