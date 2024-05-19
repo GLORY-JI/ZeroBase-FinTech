@@ -25,9 +25,18 @@
   + 송금 내역 조회
   + 송금시 메모 추가 가능 (default -> 보내는이 이름)
 
++ **기술 스택**
+  + JAVA
+  + Spring Boot
+  + Spring Security
+  + JPA
+  + MySQL
+  + ...
+
 + **기타 설명**
   + 계좌조회 및 송금내역 조회시 paging처리
   + 금액순 / 날짜순 으로 조회 가능
+  + ...
 - - -
 
 ## 🗄ERD
