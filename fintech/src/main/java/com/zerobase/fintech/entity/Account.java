@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -26,7 +25,6 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(precision = 15, scale = 0)
-    private BigDecimal balance;
+    private Long balance;
 
 }

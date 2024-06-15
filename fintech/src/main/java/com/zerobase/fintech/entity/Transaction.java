@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -28,8 +27,7 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
-    @Column(precision = 15, scale = 0)
-    private BigDecimal amount;
+    private Long amount;
 
     private LocalDateTime transactionDate;
     
