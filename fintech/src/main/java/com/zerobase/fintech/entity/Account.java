@@ -29,5 +29,4 @@ public class Account {
     @Column(precision = 15, scale = 0)
     private BigDecimal balance;
 
-
 }
