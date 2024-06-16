@@ -3,7 +3,7 @@ package com.zerobase.fintech.service;
 import com.zerobase.fintech.DTO.SignUpDTO;
 import com.zerobase.fintech.entity.User;
 import com.zerobase.fintech.enums.Authority;
-import com.zerobase.fintech.exception.ExistEmailException;
+import com.zerobase.fintech.exception.CustomException;
 import com.zerobase.fintech.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class UserService {
     public void signUp(SignUpDTO signUpDTO) {
 
         if (userRepository.countByEmail(signUpDTO.getEmail()) > 0) {
-            throw new ExistEmailException("이미 존재하는 이메일");
+            throw new CustomException("이미 존재하는 이메일");
         }
 
         User user = User.builder()

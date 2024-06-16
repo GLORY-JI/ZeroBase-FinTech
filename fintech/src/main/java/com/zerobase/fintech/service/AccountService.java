@@ -3,17 +3,12 @@ package com.zerobase.fintech.service;
 import com.zerobase.fintech.DTO.AccountDTO;
 import com.zerobase.fintech.entity.Account;
 import com.zerobase.fintech.entity.User;
-import com.zerobase.fintech.exception.UserNotFoundException;
-import com.zerobase.fintech.model.ResponseError;
+import com.zerobase.fintech.exception.CustomException;
 import com.zerobase.fintech.repository.AccountRepository;
 import com.zerobase.fintech.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.Errors;
-import org.springframework.validation.FieldError;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 @RequiredArgsConstructor
@@ -27,7 +22,7 @@ public class AccountService {
     public Account createAccount(AccountDTO accountDTO) {
 
         if(!userRepository.existsByUserId(accountDTO.getId())) {
-            throw new UserNotFoundException("ID에 해당하는 정보가 존재하지 않습니다.");
+            throw new CustomException("ID에 해당하는 정보가 존재하지 않습니다.");
         }
 
         String accountNumber = generateUniqueAccountNumber();
