@@ -24,21 +24,11 @@ public class AccountService {
 
     private final UserRepository userRepository;
 
-    public List<ResponseError> validateAccount(AccountDTO accountDTO, Errors errors) {
-        List<ResponseError> responseErrorList = new ArrayList<>();
-
-        if (errors.hasErrors()) {
-            errors.getAllErrors().forEach(e -> responseErrorList.add(ResponseError.of((FieldError) e)));
-        }
+    public Account createAccount(AccountDTO accountDTO) {
 
         if(!userRepository.existsByUserId(accountDTO.getId())) {
             throw new UserNotFoundException("ID에 해당하는 정보가 존재하지 않습니다.");
         }
-
-        return responseErrorList;
-    }
-
-    public Account createAccount(AccountDTO accountDTO) {
 
         String accountNumber = generateUniqueAccountNumber();
 

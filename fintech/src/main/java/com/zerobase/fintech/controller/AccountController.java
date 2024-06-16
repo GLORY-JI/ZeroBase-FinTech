@@ -22,17 +22,9 @@ public class AccountController {
 
     private final AccountService accountService;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createAccount(@RequestBody @Valid AccountDTO accountDTO, Errors errors) {
-
-        List<ResponseError> responseErrorList = accountService.validateAccount(accountDTO, errors);
-
-        if (!responseErrorList.isEmpty()) {
-            return new ResponseEntity<>(responseErrorList, HttpStatus.BAD_REQUEST);
-        }
-
+    @PostMapping()
+    public ResponseEntity<?> createAccount(@RequestBody @Valid AccountDTO accountDTO) {
         accountService.createAccount(accountDTO);
-
         return ResponseEntity.ok().build();
     }
 
