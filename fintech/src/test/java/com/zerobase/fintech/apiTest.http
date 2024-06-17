@@ -15,6 +15,27 @@ POST http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-  "id": "11",
-  "initialBalance": 150000000000000
+  "id": "1",
+  "initialBalance": 100
 }
+
+###
+POST http://localhost:8080/transaction/amount
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "amount": 100
+}
+
+###
+POST http://localhost:8080/transaction/amount/withdraw
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "amount": 100
+}
+
+###
+GET http://localhost:8080/accounts/1/balance

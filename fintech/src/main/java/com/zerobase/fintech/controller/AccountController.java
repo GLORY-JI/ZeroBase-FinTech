@@ -4,10 +4,7 @@ import com.zerobase.fintech.DTO.AccountDTO;
 import com.zerobase.fintech.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -22,6 +19,11 @@ public class AccountController {
     public ResponseEntity<?> createAccount(@RequestBody @Valid AccountDTO accountDTO) {
         accountService.createAccount(accountDTO);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/balance")
+    public Long checkBalance(@PathVariable Long id) {
+        return accountService.checkBalance(id);
     }
 
 }

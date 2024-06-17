@@ -19,7 +19,7 @@ public class AccountService {
 
     private final UserRepository userRepository;
 
-    public Account createAccount(AccountDTO accountDTO) {
+    public void createAccount(AccountDTO accountDTO) {
 
         if(!userRepository.existsByUserId(accountDTO.getId())) {
             throw new CustomException("ID에 해당하는 정보가 존재하지 않습니다.");
@@ -35,7 +35,8 @@ public class AccountService {
                 .balance(accountDTO.getInitialBalance())
                 .build();
 
-        return accountRepository.save(account);
+        accountRepository.save(account);
+
     }
 
     private String generateUniqueAccountNumber() {
@@ -45,6 +46,16 @@ public class AccountService {
             accountNumber = String.format("%020d", random.nextLong() & Long.MAX_VALUE);
         } while (accountRepository.existsByAccountNumber(accountNumber));
         return accountNumber;
+    }
+
+    public Long checkBalance(Long id) {
+
+        if(!accountRepository.existsByAccountId(id)) {
+            throw new CustomException("ID에 해당하는 정보가 존재하지 않습니다.");
+        }
+
+        Account account = accountRepository.getByAccountId(id);
+        return account.getBalance();
     }
 
 }
