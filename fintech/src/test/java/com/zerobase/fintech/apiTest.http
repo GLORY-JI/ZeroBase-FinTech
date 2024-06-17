@@ -3,10 +3,22 @@ POST http://localhost:8080/users/signup
 Content-Type: application/json
 
 {
-  "email": "b@naver.com",
-  "password": "2222",
-  "userName": "김길수",
-  "phoneNumber": "2222"
+  "email": "a@naver.com",
+  "password": "1111",
+  "userName": "홍길동",
+  "phoneNumber": "1111"
+
+}
+
+###
+POST http://localhost:8080/users/signup
+Content-Type: application/json
+
+{
+"email": "b@naver.com",
+"password": "2222",
+"userName": "김길수",
+"phoneNumber": "2222"
 
 }
 
@@ -24,7 +36,7 @@ POST http://localhost:8080/transaction/amount
 Content-Type: application/json
 
 {
-  "accountId": 1,
+  "accountId": 2,
   "amount": 100
 }
 
@@ -45,7 +57,7 @@ POST http://localhost:8080/transfer/2
 Content-Type: application/json
 
 {
-  "toAccountNumber": "03599564335789890009",
+  "toAccountNumber": "08139465308686566881",
   "remittanceAmount": 100,
   "memo": "길수가 길동이한테 백원보냇다"
 }

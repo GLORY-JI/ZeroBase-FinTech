@@ -31,12 +31,21 @@ public class TransferService {
         long totalAmount = toAccount.getBalance() + transferDTO.getRemittanceAmount();
 
         toAccount.setBalance(totalAmount);
-        accountRepository.save(toAccount);
+
 
         // 보내는 계좌 처리
         Account fromAccount = accountRepository.getByAccountId(accountId);
-        fromAccount.setBalance(fromAccount.getBalance() - transferDTO.getRemittanceAmount());
+
+        Long checkBalance = fromAccount.getBalance() - transferDTO.getRemittanceAmount();
+
+        if(checkBalance < 0) {
+            throw new CustomException("계좌의 잔액보다 많은 금액은 송금이 불가합니다.");
+        }
+
+        fromAccount.setBalance(checkBalance);
+
         accountRepository.save(fromAccount);
+        accountRepository.save(toAccount);
 
 
 
