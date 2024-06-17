@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -27,8 +26,7 @@ public class Transfer {
     @Column(nullable = false, length = 30)
     private String toAccountNumber;
 
-    @Column(precision = 15, scale = 0)
-    private BigDecimal remittance;
+    private Long remittanceAmount;
 
     private LocalDateTime transferDate;
 
