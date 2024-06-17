@@ -7,13 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/transaction")
+@RequestMapping("/transactions")
 @RestController
 public class TransactionController {
 
     private final TransactionService transactionService;
 
-    @PostMapping("/amount")
+    @PostMapping("/amount/deposit")
     public ResponseEntity<?> depositAmount(@RequestBody TransactionDTO transactionDTO) {
         transactionService.deposit(transactionDTO);
         return ResponseEntity.ok().build();

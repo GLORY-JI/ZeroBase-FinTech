@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/transfer")
+@RequestMapping("/transfers")
 @RestController
 public class TransferController {
 
